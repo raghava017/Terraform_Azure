@@ -1,0 +1,7 @@
+rgname              = "Practice-RG"
+rglocation          = "eastus"
+prefix              = "azrg"
+vnet_cidr_prefix    = "10.10.0.0/16"
+subnet1_cidr_prefix = "10.10.1.0/24"
+admin_username      = "Admin123"
+admin_passwd        = "Password@1234"
