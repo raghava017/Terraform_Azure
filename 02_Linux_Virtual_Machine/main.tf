@@ -9,11 +9,12 @@ terraform {
 
 provider "azurerm" {
   features {} 
-  client_id       = "***************************************"
-  client_secret   = "***************************************"
-  tenant_id       = "***************************************"
-  subscription_id = "***************************************"
+  client_id       = "00000000-0000-0000-0000-000000000000"
+  client_secret   = "20000000-0000-0000-0000-000000000000"
+  tenant_id       = "10000000-0000-0000-0000-000000000000"
+  subscription_id = "20000000-0000-0000-0000-000000000000"
 }
+
 
 resource "azurerm_resource_group" "example" {
   name     = "${var.rgname}"

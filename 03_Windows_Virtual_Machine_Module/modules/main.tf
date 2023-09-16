@@ -9,12 +9,23 @@ terraform {
 
 provider "azurerm" {
   features {} 
-  client_id       = "***************************************"
-  client_secret   = "***************************************"
-  tenant_id       = "***************************************"
-  subscription_id = "***************************************"
+  client_id       = "a185c1ad-4d48-45d3-8f40-3c41d0cd40f4"
+  client_secret   = "ARU8Q~BDoAUXVd-uCSwwD_TlpHpysVV02vrFDa7d"
+  tenant_id       = "023d861a-1653-4531-9e1e-5d8c8d05bfb1"
+  subscription_id = "4ec5f1f7-a399-43dd-a4cc-2f51e3a7a86b"
 }
 
+terraform {
+  backend "azurerm" {
+    storage_account_name = "tfstorageacc16"
+    container_name       = "tfstate"
+    key                  = "prod.terraform.tfstate"
+
+    # rather than defining this inline, the Access Key can also be sourced
+    # from an Environment Variable - more information is available below.
+    access_key = "7hlFTh8wIbsMuF/5V+KrwBwZ47ReMbYC9NOrQriTcHmjwyhDYdgev+Bx5Vtxn9+PbntKIwv8JFlX+AStfJEwkw=="
+  }
+}
 
 resource "azurerm_resource_group" "example" {
   name              =   "${var.rgname}"
@@ -29,7 +40,7 @@ resource "azurerm_virtual_network" "example" {
 }
 
 resource "azurerm_subnet" "example" {
-  name                  =     "subnet1"
+  name                  =     "${var.subnet}"
   resource_group_name   =     "${azurerm_resource_group.example.name}"
   virtual_network_name  =     "${azurerm_virtual_network.example.name}"
   address_prefixes      =     ["${var.subnet1_cidr_prefix}"]
@@ -86,7 +97,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   resource_group_name       =   "${azurerm_resource_group.example.name}"
   network_interface_ids     =   [azurerm_network_interface.example.id]
   size                      =   "Standard_B1s"
-  computer_name             =   "myvm"
+  computer_name             =   "${var.computer_name}"
   admin_username            =   "${var.admin_username}"
   admin_password            =   "${var.admin_passwd}"
 
