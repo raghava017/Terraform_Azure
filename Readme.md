@@ -59,9 +59,9 @@ Terraform Relies on plugins called “ providers” to interact with cloud provi
 
 terraform {
   required_providers {
-    azurerm = {
+    azurerm   = {
       source  = "hashicorp/azurerm"
-      version = "=3.0.0"
+      varsion = "=3.0.0"
     }
   }
 }
