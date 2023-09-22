@@ -1,0 +1,6 @@
+rgname              = "azure-tf-prod"
+rglocation          = "westus"
+vnet_name           = "azvnet-prod"
+vnet_cidr_prefix    = "20.0.0.0/16"
+subnet_name         = "aztfsubnet-prod"
+subnet_cidr_prefix  = "20.0.1.0/24"

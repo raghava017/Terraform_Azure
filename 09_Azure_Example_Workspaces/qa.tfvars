@@ -1,0 +1,6 @@
+rgname              = "azure-tf-qa"
+rglocation          = "westus"
+vnet_name           = "azvnet-qa"
+vnet_cidr_prefix    = "30.0.0.0/16"
+subnet_name         = "aztfsubnet-qa"
+subnet_cidr_prefix  = "30.0.1.0/24"
